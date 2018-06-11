@@ -34,10 +34,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         loadUsers()  // Load users from firebase database to local array
         loadPosts()  // Load posts from firebase database to local array
-        
-        
-        
-       
+   
     }
     
     // MARK: -
