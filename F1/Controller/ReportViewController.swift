@@ -28,15 +28,10 @@ class ReportViewController: UIViewController, CLLocationManagerDelegate, UIImage
     
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var reportTypeImage: UIImageView!
-    
     @IBOutlet weak var postButton: CustomButton!
-    
     @IBOutlet weak var locationDescriptionTextField: UITextField!
-    
     @IBOutlet weak var carNumberTextField: UITextField!
-    
     @IBOutlet weak var noteTextField: UITextField!
-    
     @IBOutlet weak var pictureImageView: UIImageView!
     
     
@@ -96,11 +91,11 @@ class ReportViewController: UIViewController, CLLocationManagerDelegate, UIImage
         
         let newPostReference = Database.database().reference().child("posts").child(newPostID)
         
-        let sendrKey = Auth.auth().currentUser?.uid
+        //let postKey = Auth.auth().currentUser?.uid
         
      
         //MARK: - Upload post Details to firebase database
-        newPostReference.setValue(["Sender": senderName, "PhotoURL": photoURL,"ReportType": reportType, "GPS": gpsLat + "/" + gpsLon, "Time": TH.currentTimeString(), "CarNumber": carNumberTextField.text!, "LocationDescription": locationDescriptionTextField.text!, "Note": noteTextField.text!], withCompletionBlock: {
+        newPostReference.setValue(["Sender": senderName, "PhotoURL": photoURL,"ReportType": reportType, "GPS": gpsLat + "/" + gpsLon, "Time": TH.currentTimeString(), "CarNumber": carNumberTextField.text!, "LocationDescription": locationDescriptionTextField.text!, "Note": noteTextField.text!, "Key": newPostID], withCompletionBlock: {
             
             (error,ref) in
             
@@ -132,9 +127,8 @@ class ReportViewController: UIViewController, CLLocationManagerDelegate, UIImage
     }
     
     
-    
     @IBAction func postButtonPressed(_ sender: UIButton) {
-        
+   
         //noteTextField.isEnabled = false
         
         

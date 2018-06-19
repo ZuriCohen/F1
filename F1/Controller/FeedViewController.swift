@@ -10,8 +10,11 @@ import UserNotifications
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
+    @IBOutlet weak var reportImageButton: UIButton!
+    
     @IBOutlet weak var feedTableView: UITableView!
     
+  
     var currentUser =  User(ID: "", Name: "", Email: "", CarNumber: "000")
     var reportType = ""
     var postsArray = [Post]()
@@ -24,6 +27,23 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         case Policeman
     }
     
+    
+    @IBAction func tempForTestButtonPreesd(_ sender: UIButton) {
+        
+        print("test start ==================================================")
+        for i in 0...postsArray.count-1 {
+            
+            print("post key = \(postsArray[i].key) post index =  \(i)")
+            
+            for j in 0...postsArray[i].seemsByArray.count-1 {
+                
+                print("email = \(postsArray[i].seemsByArray[j]) email index =  \(j)")
+    
+            }
+        }
+        print("test end ==================================================")
+    }
+    
     // MARK: - viewDidLoad Method
     
     override func viewDidLoad() {
@@ -34,6 +54,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         loadUsers()  // Load users from firebase database to local array
         loadPosts()  // Load posts from firebase database to local array
+        loadPostSeemsBy()
    
     }
     
@@ -56,6 +77,10 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print("ELSE")
             }
     }
+    
+    
+    
+    
 
     
     // MARK: - Load posts from firebase database to local array
@@ -75,22 +100,35 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let carNumber = snapshotValue["CarNumber"] as! String
                 let locationDescription = snapshotValue["LocationDescription"] as! String
                 let note = snapshotValue["Note"] as! String
+                let key = snapshotValue["Key"] as! String
                 
                 
                 
-                let post = Post(Url: photoURL, Sender: sender, Note: note, Time: time, LocationDescription: locationDescription, LocationGPS: gps, CarNumber: carNumber, Type: postType)
+                let post = Post(Url: photoURL, Sender: sender, Note: note, Time: time, LocationDescription: locationDescription, LocationGPS: gps, CarNumber: carNumber, Type: postType, Key: key,SeemsByArray: ["xxxx"])
                 
                 self.postsArray.append(post)
                 
                 self.feedTableView.reloadData()
                 
+                /////////////////////
                 
-                if post.checked == false{
-                    
-                    self.reportsClassifier(newPost: post)
-                    
-                }
+                self.loadPostSeemsBy()
                 
+                var userEmail = Auth.auth().currentUser!.email
+                
+                
+//                        if post.seemsByArray.contains(userEmail!){
+//
+//                            print("yes")
+//                        }
+//
+//                        else{
+                
+                            self.reportsClassifier(newPost: post)
+                
+//                        }
+                
+                ///////////////////////
                 
             }
             
@@ -106,7 +144,6 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let userReference = Database.database().reference().child("users")
         userReference.observe(.childAdded){(snapshot) in
-            
             
             if let snapshotValue = snapshot.value as? [String: Any]{
                 
@@ -130,35 +167,72 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+    /////////////////////////////////////////////////////////////////////  posts and checks for a new "see post user" add
+    
+    func loadPostSeemsBy(){
+
+       // for post in postsArray {
+       for i in 0...postsArray.count {
+
+            let postsReference = Database.database().reference().child("posts").child("How see this post")//child(post.key).
+
+            postsReference.observe(.childAdded){(snapshot) in
+
+                if let snapshotValue = snapshot.value as? [String: Any]{
+
+                    let newSeePostUserEmail = snapshotValue["Email"] as! String
+
+                    //post.seemsByArray.append(newSeePostUserEmail)
+                    self.postsArray[i].seemsByArray.append(newSeePostUserEmail)
+
+                }
+
+            }
+        }
+
+    }
+    
+    /////////////////////////////////////////////////////////////////////////
+
+    
     // MARK: - Reports Classifier
     
     func reportsClassifier(newPost: Post){
         
-//        //////////////////////////////////////////////////////////
-//        
-//        let Reference = Database.database().reference().child("posts").child(newPost.key)
-//        
-//        Reference.setValue(["how see the post": currentUser.email], withCompletionBlock: {
-//         
-//            
-//            let newPostID = Auth.auth().currentUser!.uid
-//            
-//            let newUserReference = Database.database().reference().child("users").child(newUserID)
-//            
-//            newUserReference.setValue([ "Key": newUserID], withCompletionBlock: {
-//                
-//                (error,ref) in
-//                
-//                if error != nil{
-//                    print("We have error")
-//                    return
-//                }
-//                
-//                print("saveUserDetailsToFirebase Success!")
-//                
-//            })
+        //////////////////////////////////////////////////////////Check if the currentUser already see thes post(in the array)
         
-        ///////////////////////////////////////////////////////////
+//        var userEmail = Auth.auth().currentUser!.email
+//
+//        if newPost.seemsByArray.contains(userEmail!){
+//
+//            print("yes")
+//        }
+//
+//        else{
+//
+//            print("no")
+//
+//        }
+        
+        
+        ////////////////////////////////////////////////////////// add to firebase that currentUser see the post
+ 
+       let Reference = Database.database().reference().child("posts").child(newPost.key).child("How see this post").childByAutoId()
+        
+            Reference.setValue(["Email": currentUser.email], withCompletionBlock: {
+                
+                (error,ref) in
+                
+                if error != nil{
+                    print("We have error")
+                    return
+                }
+                
+                print("saveUserDetailsToFirebase Success!")
+                
+            })
+    
+        /////////////////////////////////////////////////////////
         
         
         // TODO: delete temp - [my home 32.111255/35.033274] [yael's home 32.087586/34.888388]  [oranit 32.131003/34.991366] [elkana 32.109910/35.035463]
@@ -288,7 +362,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         let targetURL = URL(string: currentPost.url)
         cell.typeImageView.image = imageTypeSelector(correntRepoetType: postsArray[indexPath.row].type)
         
-        ImageService.getImage(withURL: targetURL!) { image in
+        
+       ImageService.getImage(withURL: targetURL!) { image in
             cell.postImageView.image = image
         }
         
@@ -342,10 +417,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-    
-    
     @IBAction func reportButtonPressed(_ sender: UIButton) {
-        
+   
         //Show UI report type
         let imgTitle = UIImage(named:"megaphone (1)")
         let imgViewTitle = UIImageView(frame: CGRect(x: 10, y: 10, width: 30, height: 30))

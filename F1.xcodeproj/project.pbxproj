@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		521432FD208F401600D2487F /* BackgroundTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521432FC208F401600D2487F /* BackgroundTask.swift */; };
+		5229AD1F20D7F83600BA849B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5229AD1E20D7F83600BA849B /* Main.storyboard */; };
+		5229AD2320D7FD5C00BA849B /* imageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5229AD2220D7FD5C00BA849B /* imageHandler.swift */; };
 		52301DAA207B4358005FB6AE /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52301DA9207B4358005FB6AE /* ReportViewController.swift */; };
 		52301DAC207B43ED005FB6AE /* ParkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52301DAB207B43ED005FB6AE /* ParkViewController.swift */; };
-		523C49A620C54D7700D85E3A /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523C49A520C54D7700D85E3A /* ImageService.swift */; };
 		52424DC920C6A94900444BF1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52424DC820C6A94900444BF1 /* User.swift */; };
 		524FD79520A11ABD00604860 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524FD79420A11ABD00604860 /* Alert.swift */; };
 		526439F920C3E10800B2083D /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526439F820C3E10800B2083D /* CustomTableViewCell.swift */; };
-		526439FB20C3E4F800B2083D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 526439FA20C3E4F700B2083D /* Main.storyboard */; };
 		52660E7920BE813100F80E1F /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52660E7820BE813100F80E1F /* FeedViewController.swift */; };
 		52660E7B20BE892800F80E1F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52660E7A20BE892800F80E1F /* Post.swift */; };
 		526668AE20736F60000A44BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526668AD20736F60000A44BB /* AppDelegate.swift */; };
@@ -41,13 +41,13 @@
 /* Begin PBXFileReference section */
 		405C4B66B934CA602C3A3996 /* Pods_F1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_F1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		521432FC208F401600D2487F /* BackgroundTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundTask.swift; sourceTree = "<group>"; };
+		5229AD1E20D7F83600BA849B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5229AD2220D7FD5C00BA849B /* imageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageHandler.swift; sourceTree = "<group>"; };
 		52301DA9207B4358005FB6AE /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		52301DAB207B43ED005FB6AE /* ParkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkViewController.swift; sourceTree = "<group>"; };
-		523C49A520C54D7700D85E3A /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageService.swift; path = "../../../../SwiftFirebaseTutorials-master/FirebaseApp-6-Downloading-Images-End/FirebaseApp/Services/ImageService.swift"; sourceTree = "<group>"; };
 		52424DC820C6A94900444BF1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		524FD79420A11ABD00604860 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		526439F820C3E10800B2083D /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		526439FA20C3E4F700B2083D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
 		52660E7820BE813100F80E1F /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		52660E7A20BE892800F80E1F /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		526668AA20736F60000A44BB /* F1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = F1.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,7 +143,7 @@
 		526EA96020833A69009C6D70 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				526439FA20C3E4F700B2083D /* Main.storyboard */,
+				5229AD1E20D7F83600BA849B /* Main.storyboard */,
 				5240C29620A56CF7009A897C /* customViews */,
 			);
 			path = View;
@@ -152,11 +152,11 @@
 		52BA9843208CECBB00AD2E75 /* Services  */ = {
 			isa = PBXGroup;
 			children = (
-				523C49A520C54D7700D85E3A /* ImageService.swift */,
 				521432FC208F401600D2487F /* BackgroundTask.swift */,
 				52B47F92208CE396001BCA00 /* TimeHandler.swift */,
 				52E799DC208DD73700E08657 /* LocationHandler.swift */,
 				52CC31642096382100B44116 /* BGT.swift */,
+				5229AD2220D7FD5C00BA849B /* imageHandler.swift */,
 			);
 			path = "Services ";
 			sourceTree = "<group>";
@@ -275,7 +275,7 @@
 				52B72408207CCA1400C65E25 /* MessageCell.xib in Resources */,
 				526668C020737056000A44BB /* GoogleService-Info.plist in Resources */,
 				526668B520736F60000A44BB /* Assets.xcassets in Resources */,
-				526439FB20C3E4F800B2083D /* Main.storyboard in Resources */,
+				5229AD1F20D7F83600BA849B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +372,7 @@
 				52EDCB5420A1E896001F8096 /* UserC.swift in Sources */,
 				52B47F93208CE396001BCA00 /* TimeHandler.swift in Sources */,
 				526668B020736F60000A44BB /* WelcomeViewController.swift in Sources */,
-				523C49A620C54D7700D85E3A /* ImageService.swift in Sources */,
+				5229AD2320D7FD5C00BA849B /* imageHandler.swift in Sources */,
 				526668AE20736F60000A44BB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
