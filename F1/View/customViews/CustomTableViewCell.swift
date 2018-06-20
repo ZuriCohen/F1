@@ -21,14 +21,12 @@ class CustomTableViewCell: UITableViewCell {
         // Initialization code
         //override open func didMoveToWindow() {
         
+       
+            //self.layer.cornerRadius = 30
+            //self.layer.borderWidth = 4
+            //self.layer.borderColor = UIColor.white.cgColor
+            
         
-            
-            self.layer.cornerRadius = 40
-            self.layer.cornerRadius = 30
-            self.layer.borderWidth = 4
-            self.layer.borderColor = UIColor.white.cgColor
-            
-        //}
     }
 
 }
