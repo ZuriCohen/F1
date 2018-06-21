@@ -104,7 +104,12 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 
                 
-                let post = Post(Url: photoURL, Sender: sender, Note: note, Time: time, LocationDescription: locationDescription, LocationGPS: gps, CarNumber: carNumber, Type: postType, Key: key,SeemsByArray: ["xxxx"])
+                
+//                let post = Post(Url: photoURL, Sender: sender, Note: note, Time: time, LocationDescription: locationDescription, LocationGPS: gps, CarNumber: carNumber, Type: postType, Key: key,SeemsByArray: ["xxxx"])
+                
+                let post = Post(Url: photoURL, Sender: sender, Note: note, Time: time, LocationDescription: locationDescription, LocationGPS: gps, CarNumber: carNumber, Type: postType, Key: key)//,SeemsByArray:SeemsBy)
+                
+                
                 
                 self.postsArray.append(post)
                 
@@ -116,18 +121,15 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 var userEmail = Auth.auth().currentUser!.email
                 
-                
-//                        if post.seemsByArray.contains(userEmail!){
-//
-//                            print("yes")
-//                        }
-//
-//                        else{
-                
-                            self.reportsClassifier(newPost: post)
-                
-//                        }
-                
+                if post.seemsByArray.contains(self.currentUser.email){
+                    print("yes")
+                }
+                    
+                else{
+                    
+                    self.reportsClassifier(newPost: post)
+  
+                }
                 ///////////////////////
                 
             }
@@ -167,32 +169,41 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-    /////////////////////////////////////////////////////////////////////  posts and checks for a new "see post user" add
+    ///////////////////////////////////////////////////////////////////  posts and checks for a new "see post user" add
     
     func loadPostSeemsBy(){
-
-       // for post in postsArray {
-       for i in 0...postsArray.count {
-
-            let postsReference = Database.database().reference().child("posts").child("How see this post")//child(post.key).
-
-            postsReference.observe(.childAdded){(snapshot) in
-
-                if let snapshotValue = snapshot.value as? [String: Any]{
-
-                    let newSeePostUserEmail = snapshotValue["Email"] as! String
-
-                    //post.seemsByArray.append(newSeePostUserEmail)
-                    self.postsArray[i].seemsByArray.append(newSeePostUserEmail)
-
+        
+        // for post in postsArray {
+        
+        if postsArray.isEmpty{
+            
+        }
+        else{
+            for i in 0...postsArray.count-1  {
+                
+                let postsReference = Database.database().reference().child("posts").child(postsArray[i].key).child("How see this post")
+                //child(postsArray[i].key).child("How see this post")
+                
+                postsReference.observe(.childAdded){(snapshot) in
+                    
+                    if let snapshotValue = snapshot.value as? [String: Any]{
+                        
+                        let newSeePostUserEmail = snapshotValue["Email"] as! String
+                        
+                        //post.seemsByArray.append(newSeePostUserEmail)
+                        //self.postsArray[i].seemsByArray.append(newSeePostUserEmail)
+                        
+                        self.postsArray[i].seemsByArray.append(newSeePostUserEmail)
+                        
+                    }
+                    
                 }
-
             }
         }
-
+        
     }
     
-    /////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
 
     
     // MARK: - Reports Classifier
@@ -216,6 +227,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
         ////////////////////////////////////////////////////////// add to firebase that currentUser see the post
+        
+        
  
        let Reference = Database.database().reference().child("posts").child(newPost.key).child("How see this post").childByAutoId()
         
