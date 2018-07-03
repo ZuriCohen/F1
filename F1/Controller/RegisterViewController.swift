@@ -162,6 +162,9 @@ class RegisterViewController: UIViewController {
 
 
 
+
+
+
 //        userArray.append(registerUser)
         
 //        let encoder = PropertyListEncoder()

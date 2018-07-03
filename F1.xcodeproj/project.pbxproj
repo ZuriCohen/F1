@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		520E41AC20EA099B005E5E56 /* CustomPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520E41AA20EA099B005E5E56 /* CustomPostCell.swift */; };
+		520E41AD20EA099B005E5E56 /* CustomPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 520E41AB20EA099B005E5E56 /* CustomPostCell.xib */; };
 		521432FD208F401600D2487F /* BackgroundTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521432FC208F401600D2487F /* BackgroundTask.swift */; };
 		5229AD1F20D7F83600BA849B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5229AD1E20D7F83600BA849B /* Main.storyboard */; };
 		5229AD2320D7FD5C00BA849B /* imageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5229AD2220D7FD5C00BA849B /* imageHandler.swift */; };
@@ -14,7 +16,6 @@
 		52301DAC207B43ED005FB6AE /* ParkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52301DAB207B43ED005FB6AE /* ParkViewController.swift */; };
 		52424DC920C6A94900444BF1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52424DC820C6A94900444BF1 /* User.swift */; };
 		524FD79520A11ABD00604860 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524FD79420A11ABD00604860 /* Alert.swift */; };
-		526439F920C3E10800B2083D /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526439F820C3E10800B2083D /* CustomTableViewCell.swift */; };
 		52660E7920BE813100F80E1F /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52660E7820BE813100F80E1F /* FeedViewController.swift */; };
 		52660E7B20BE892800F80E1F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52660E7A20BE892800F80E1F /* Post.swift */; };
 		526668AE20736F60000A44BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526668AD20736F60000A44BB /* AppDelegate.swift */; };
@@ -25,8 +26,6 @@
 		526668C42073B317000A44BB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526668C32073B317000A44BB /* LoginViewController.swift */; };
 		52A3FB3F20A0CDCD0045CFEB /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A3FB3E20A0CDCD0045CFEB /* CustomButton.swift */; };
 		52B47F93208CE396001BCA00 /* TimeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B47F92208CE396001BCA00 /* TimeHandler.swift */; };
-		52B72406207CCA0200C65E25 /* CustomMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B72405207CCA0200C65E25 /* CustomMessageCell.swift */; };
-		52B72408207CCA1400C65E25 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52B72407207CCA1400C65E25 /* MessageCell.xib */; };
 		52B97BB320AB2F9C00B59285 /* CustomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B97BB220AB2F9C00B59285 /* CustomImage.swift */; };
 		52CC31652096382100B44116 /* BGT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CC31642096382100B44116 /* BGT.swift */; };
 		52D675BE207A56A4007CE7DD /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D675BD207A56A4007CE7DD /* Report.swift */; };
@@ -40,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		405C4B66B934CA602C3A3996 /* Pods_F1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_F1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		520E41AA20EA099B005E5E56 /* CustomPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPostCell.swift; sourceTree = "<group>"; };
+		520E41AB20EA099B005E5E56 /* CustomPostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomPostCell.xib; sourceTree = "<group>"; };
 		521432FC208F401600D2487F /* BackgroundTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundTask.swift; sourceTree = "<group>"; };
 		5229AD1E20D7F83600BA849B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5229AD2220D7FD5C00BA849B /* imageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageHandler.swift; sourceTree = "<group>"; };
@@ -47,7 +48,6 @@
 		52301DAB207B43ED005FB6AE /* ParkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkViewController.swift; sourceTree = "<group>"; };
 		52424DC820C6A94900444BF1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		524FD79420A11ABD00604860 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
-		526439F820C3E10800B2083D /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		52660E7820BE813100F80E1F /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		52660E7A20BE892800F80E1F /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		526668AA20736F60000A44BB /* F1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = F1.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,8 +60,6 @@
 		526668C32073B317000A44BB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		52A3FB3E20A0CDCD0045CFEB /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		52B47F92208CE396001BCA00 /* TimeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeHandler.swift; sourceTree = "<group>"; };
-		52B72405207CCA0200C65E25 /* CustomMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMessageCell.swift; sourceTree = "<group>"; };
-		52B72407207CCA1400C65E25 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		52B97BB220AB2F9C00B59285 /* CustomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImage.swift; sourceTree = "<group>"; };
 		52CC31642096382100B44116 /* BGT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGT.swift; sourceTree = "<group>"; };
 		52D675BD207A56A4007CE7DD /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
@@ -95,10 +93,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		520E41A920EA0906005E5E56 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				520E41AA20EA099B005E5E56 /* CustomPostCell.swift */,
+				520E41AB20EA099B005E5E56 /* CustomPostCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		5240C29620A56CF7009A897C /* customViews */ = {
 			isa = PBXGroup;
 			children = (
-				526439F820C3E10800B2083D /* CustomTableViewCell.swift */,
 				52A3FB3E20A0CDCD0045CFEB /* CustomButton.swift */,
 				524FD79420A11ABD00604860 /* Alert.swift */,
 				52EDCB5520A1EB2D001F8096 /* CustomTextFiald.swift */,
@@ -128,11 +134,11 @@
 		526668AC20736F60000A44BB /* F1 */ = {
 			isa = PBXGroup;
 			children = (
+				520E41A920EA0906005E5E56 /* Cell */,
 				52D675BC207A3712007CE7DD /* Model */,
 				52BA9843208CECBB00AD2E75 /* Services  */,
 				526EA96020833A69009C6D70 /* View */,
 				52BD445E2074E73700CF2F19 /* Controller */,
-				52D675B9207A0865007CE7DD /* Custom Cell */,
 				526668B420736F60000A44BB /* Assets.xcassets */,
 				526668B920736F61000A44BB /* Info.plist */,
 				526668BF20737056000A44BB /* GoogleService-Info.plist */,
@@ -174,15 +180,6 @@
 				52301DAB207B43ED005FB6AE /* ParkViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		52D675B9207A0865007CE7DD /* Custom Cell */ = {
-			isa = PBXGroup;
-			children = (
-				52B72405207CCA0200C65E25 /* CustomMessageCell.swift */,
-				52B72407207CCA1400C65E25 /* MessageCell.xib */,
-			);
-			path = "Custom Cell";
 			sourceTree = "<group>";
 		};
 		52D675BC207A3712007CE7DD /* Model */ = {
@@ -272,7 +269,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52B72408207CCA1400C65E25 /* MessageCell.xib in Resources */,
+				520E41AD20EA099B005E5E56 /* CustomPostCell.xib in Resources */,
 				526668C020737056000A44BB /* GoogleService-Info.plist in Resources */,
 				526668B520736F60000A44BB /* Assets.xcassets in Resources */,
 				5229AD1F20D7F83600BA849B /* Main.storyboard in Resources */,
@@ -362,12 +359,11 @@
 				52A3FB3F20A0CDCD0045CFEB /* CustomButton.swift in Sources */,
 				526668C22073B2FC000A44BB /* RegisterViewController.swift in Sources */,
 				52301DAA207B4358005FB6AE /* ReportViewController.swift in Sources */,
-				52B72406207CCA0200C65E25 /* CustomMessageCell.swift in Sources */,
 				52E799DD208DD73700E08657 /* LocationHandler.swift in Sources */,
 				52660E7920BE813100F80E1F /* FeedViewController.swift in Sources */,
 				52F6699F207F44B1006378BF /* Park.swift in Sources */,
 				52D675BE207A56A4007CE7DD /* Report.swift in Sources */,
-				526439F920C3E10800B2083D /* CustomTableViewCell.swift in Sources */,
+				520E41AC20EA099B005E5E56 /* CustomPostCell.swift in Sources */,
 				521432FD208F401600D2487F /* BackgroundTask.swift in Sources */,
 				52EDCB5420A1E896001F8096 /* UserC.swift in Sources */,
 				52B47F93208CE396001BCA00 /* TimeHandler.swift in Sources */,

@@ -14,6 +14,10 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var feedTableView: UITableView!
     
+    
+    let customCellNib = UINib(nibName: "CustomPostCell", bundle: nil)//>>
+    let reuseIdentifier = "postCell"//>>
+    
   
     var currentUser =  User(ID: "", Name: "", Email: "", CarNumber: "000")
     var reportType = ""
@@ -52,6 +56,10 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         feedTableView.dataSource = self // Initializing feed table view
         feedTableView.delegate = self // Initializing feed table view
         
+        feedTableView.rowHeight = UITableViewAutomaticDimension //>>
+        feedTableView.register(customCellNib, forCellReuseIdentifier: reuseIdentifier)//>>
+        
+       
         loadUsers()  // Load users from firebase database to local array
         loadPosts()  // Load posts from firebase database to local array
         loadPostSeemsBy()
@@ -64,8 +72,6 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         print("currentUserInit()")
         print(usersArray.count)
-
-        
 
             if  Auth.auth().currentUser?.email == user.email{
 
@@ -115,23 +121,22 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 
                 self.feedTableView.reloadData()
                 
-                /////////////////////
+                ////////////////////////
                 
                 self.loadPostSeemsBy()
                 
                 var userEmail = Auth.auth().currentUser!.email
                 
-                if post.seemsByArray.contains(self.currentUser.email){
-                    print("yes")
-                }
+                if post.seemsByArray.contains(userEmail!){
                     
+                    
+                }
                 else{
                     
                     self.reportsClassifier(newPost: post)
-  
+                    
                 }
-                ///////////////////////
-                
+              ///////////////////////////////
             }
             
         }
@@ -244,6 +249,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print("saveUserDetailsToFirebase Success!")
                 
             })
+        
+        loadPostSeemsBy()
     
         /////////////////////////////////////////////////////////
         
@@ -365,11 +372,12 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! CustomTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! CustomPostCell
         
         
         var currentPost = postsArray[indexPath.row]
         
+        cell.mainLabel.text = currentPost.note
         cell.timeLabel.text = currentPost.time
         cell.senderLabel.text = currentPost.sender
         let targetURL = URL(string: currentPost.url)
@@ -377,7 +385,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
        ImageService.getImage(withURL: targetURL!) { image in
-            cell.postImageView.image = image
+            cell.mainImageView.image = image
         }
         
         return cell
